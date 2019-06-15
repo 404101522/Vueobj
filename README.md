@@ -1,5 +1,6 @@
 # traval
-首先clone 项目  建立关联  然后操作 
+git pull
+首clone 项目  建立关联  然后操作 
 
 新项目要 git init 
 其余 add .
