@@ -1,15 +1,13 @@
 # traval
-
-git init
-git add README.md
-git commit -m "first commit"
-git remote add origin https://github.com/404101522/Vueobj.git
-git push -u origin master
+首先clone 项目  建立关联  然后操作 
 
 
 
 
 > A Vue.js project
+
+
+
 
 ## Build Setup
 
