@@ -1,17 +1,18 @@
 <template>
     <div class='icons'>
 
-      <swiper >   
+      <swiper :options="swiperOption" v-if='showSwiper'>   
      <swiper-slide v-for='(page,index) of pages' :key='index'>  
-      <div class="icon" v-for='item of page' :key='item.id'>
+      <div class="icon" v-for='(item,i) of page' :key='i'>
           <div class="icon-img">
             <img class='icon-img-content' :src="item.imgUrl" alt="">
           </div>
-          <p class='icon-desc'>{{item.desc}}</p>
+          <p class='icon-desc'>{{item.title}}</p>
       </div>
    </swiper-slide>   
 
-     
+       <!-- Optional controls 用于显示滚动叶下方的小点，需要在组件date里面将class名配置进去-->
+    <div class="swiper-pagination"  slot="pagination"></div>
       </swiper>
 
     </div>
@@ -20,61 +21,23 @@
 <script>
 export default {
 name:'HomeIcons',
+props:{
+  list:Array
+},
 data(){
     return {
-    iconList:[
-        {
-            id:'0001',
-            imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-            desc:'热门景点'
-        },
-           {
-            id:'0002',
-            imgUrl:'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
-            desc:'一日游'
-        },
-            {
-            id:'0003',
-            imgUrl:'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',
-            desc:'武汉必游'
-        },
-            {
-            id:'0004',
-            imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/50/26ffa31b56646402.png',
-            desc:'亲子游'
-        },
-        {
-            id:'0005',
-            imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/75/eca3ce656c886502.png',
-            desc:'木兰天池'
-        },
-        {
-            id:'0006',
-            imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/76/eb88861d78fb9902.png',
-            desc:'动植物园'
-        },
-            {
-            id:'0007',
-            imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/3e/86314b2af03b7502.png',
-            desc:'水上玩乐'
-        },
-            {
-            id:'0008',
-            imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/b1/528a9e80403b8c02.png',
-            desc:'武汉欢乐谷'
-        },
- {
-            id:'0009',
-            imgUrl:'http://img1.qunarzz.com/piao/fusion/1803/50/26ffa31b56646402.png',
-            desc:'极地海洋点点点点'
-        },
-    ] 
+        swiperOption:{
+             pagination:'.swiper-pagination',
+             autoplay:false,
+          loop:true  
+        }
+    
     }
 },
 computed:{
   pages(){
       const pages=[]
-     this.iconList.forEach((item,index)=>{
+     this.list.forEach((item,index)=>{
       const page=Math.floor(index/8)
       if(!pages[page]){
           pages[page]=[]
@@ -83,6 +46,10 @@ computed:{
 
      })
     return pages
+  },
+  showSwiper(){
+     return this.list.length
+
   }
 
 }

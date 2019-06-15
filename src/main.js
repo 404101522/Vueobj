@@ -10,10 +10,17 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'styles/reset.css'
 //1像素边框
 import 'styles/border.css'
+//引入的1像素边框直接使用类名 如 border-bottom 
 import 'styles/iconfont.css'
 import 'swiper/dist/css/swiper.css'
 //引入字体图标
+//安装axios  npm i axios -S
+//在static 下 mock 建 index.json 模拟数据
+//配了 static/mock   不会提交到仓库里
+//安装better-scroll   cnpm i better-scroll -S
 
+import store from './store'
+//引入Vuex  vuex 需 安装 cnpm i vuex -S
 
 
 Vue.config.productionTip = false
@@ -25,6 +32,7 @@ Vue.use(VueAwesomeSwiper)
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
