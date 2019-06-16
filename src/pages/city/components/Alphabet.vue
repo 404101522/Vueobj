@@ -4,7 +4,7 @@
         v-for='item of letters' :key='item'
         :ref='item'
         @click='handleLetterClick'
-        @touchstart="handleTouchStart"
+        @touchstart.prevent="handleTouchStart"
         @touchmove="handleTouchMove"
         @touchend="handleTouchEnd"
         >
@@ -75,6 +75,9 @@ methods:{
     }
 }
 }
+
+
+// @touchstart.prevent   添加了修饰符 prevent  阻止了滑动 屏幕跟着下滚动
 </script>
 
 <style lang='stylus' scoped>

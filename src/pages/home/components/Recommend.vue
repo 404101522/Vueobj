@@ -2,7 +2,7 @@
 <div>
     <div class='title'>热销推荐</div>
 <ul>
-    <router-link tag='li' to='/detail' class='item border-bottom' v-for='(item,index) of list' :key='index'>
+    <router-link tag='li' to='/detail/1' class='item border-bottom' v-for='(item,index) of list' :key='index'>
         <div class="item-img-wrapper">
             <img class='item-img' :src="item.imgUrl" />
         </div>

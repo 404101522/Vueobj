@@ -19,8 +19,17 @@ import 'swiper/dist/css/swiper.css'
 //配了 static/mock   不会提交到仓库里
 //安装better-scroll   cnpm i better-scroll -S
 
+//在 package.json 中添加  //添加--host 0.0.0.0    真机测试  
+//输入 ipconfig  查看ip  
+
 import store from './store'
 //引入Vuex  vuex 需 安装 cnpm i vuex -S
+
+//解决浏览器不支持 es6 Promise  解决 cnpm i babel-polyfill -S
+import 'babel-polyfill'
+//引入
+
+//配置运行在后端的 project 目录下  index.js  中写  asseetsPublicPath:'/project'   
 
 
 Vue.config.productionTip = false
@@ -30,6 +39,7 @@ Vue.use(VueAwesomeSwiper)
 
 /* eslint-disable no-new */
 new Vue({
+
   el: '#app',
   router,
   store,

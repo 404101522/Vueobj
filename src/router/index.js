@@ -22,7 +22,11 @@ export default new Router({
     },
     {path:'/detail/:id',
       name:'detail',
-      component:Detail
+      component:Detail,
+     
   }
-  ]
+  ],
+  scrollBehavior(to,from ,savedPosition){      //让每一次路由切换 位置都在最顶部
+    return {x:0 ,y:0}
+  }
 })
